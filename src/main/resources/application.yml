@@ -1,0 +1,29 @@
+server:
+  port: 8085
+spring:
+    profiles: 
+        active: dev
+     
+--- 
+ 
+spring:
+    config:
+        activate:
+            on-profile: dev
+    datasource:
+        password: sts@9890
+        url: jdbc:postgresql://localhost:5432/ecommerce
+        username: postgres
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "health,metrics,info"      
+        
